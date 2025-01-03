@@ -4,9 +4,9 @@ import Modal from "./modal/modal";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import FullCalendarComponent from "./calender/FullCalendarComponent";
-import dotenv from "dotenv"
+// import dotenv from "dotenv"
 
-dotenv.config()
+// dotenv.config()
 const tables = [
   { id: "0817x1irop468dy", no: 1 },
   { id: "0817x1irop468d6", no: 2 },
@@ -46,7 +46,8 @@ export default function Home() {
   };
   const handleClick = (id) => {
     setTableId(id);
-    axios.get(process.env.SERVER_URL+`/booking/${id}`).then((res) => {
+    console.log(process.env.NEXT_PUBLIC_SERVER_URL);
+    axios.get(process.env.NEXT_PUBLIC_SERVER_URL + `/booking/${id}`).then((res) => {
       setBookings(
         res.data.data.map((e) => {
           return {
@@ -68,7 +69,7 @@ export default function Home() {
     return newDate;
   };
 
-  const bookSlot = async() => {
+  const bookSlot = async () => {
     const data = {
       name: userData.name,
       mobile: userData.mobile,
@@ -78,13 +79,16 @@ export default function Home() {
       table: tableId,
       tableNo: tableNo,
     };
-    await axios.post(process.env.SERVER_URL + '/book', data).then((res) => {
-      toast(res?.data?.message)
-      console.log(res.data.message);
-      setUserData({});
-    }).then(()=>{
-      closeModal()
-    })
+    await axios
+      .post(process.env.NEXT_PUBLIC_SERVER_URL + "/book", data)
+      .then((res) => {
+        toast(res?.data?.message);
+        console.log(res.data.message);
+        setUserData({});
+      })
+      .then(() => {
+        closeModal();
+      });
   };
   const handleDateClick = (arg) => {
     setUserData({
@@ -97,11 +101,15 @@ export default function Home() {
     const newDate = new Date(date);
     return newDate.toLocaleString("en-GB", { hour12: false });
   };
-  // 
+  //
   return (
     <>
       <div className="grid place-items-center ">
-        <ToastContainer position="top-center" closeButton={false} autoClose={5000} />
+        <ToastContainer
+          position="top-center"
+          closeButton={false}
+          autoClose={5000}
+        />
       </div>
       <div className=" bg-[url('../app/Images/hotel3.jpg')] bg-cover aspect-auto h-[100vh] grid justify-items-center items-center brightness-110  ">
         <div className="grid md:grid-cols-3 grid-cols-1 gap-5 justify-items-center md:backdrop-blur-md md:border rounded-xl p-4 ">
