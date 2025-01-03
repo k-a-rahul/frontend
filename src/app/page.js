@@ -44,7 +44,7 @@ export default function Home() {
   };
   const handleClick = (id) => {
     setTableId(id);
-    axios.get(`http://localhost:5000/api/booking/${id}`).then((res) => {
+    axios.get(process.env.SERVER_URL+`booking/${id}`).then((res) => {
       setBookings(
         res.data.data.map((e) => {
           return {
@@ -76,7 +76,7 @@ export default function Home() {
       table: tableId,
       tableNo: tableNo,
     };
-    await axios.post("http://localhost:5000/api/book", data).then((res) => {
+    await axios.post(process.env.SERVER_URL + '/book', data).then((res) => {
       toast(res?.data?.message)
       console.log(res.data.message);
       setUserData({});
