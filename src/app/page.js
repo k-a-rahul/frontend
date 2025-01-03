@@ -145,7 +145,7 @@ export default function Home() {
       {/* Modal Component */}
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         <h2 className="text-xl font-bold text-gray-800">
-          Enter Details And Choose a Slot
+          Enter Details And Slot
         </h2>
         <div className="w-full flex justify-center items-center">
           <form className="w-full md:w-full flex flex-col justify-center items-center gap-1 p-1">
