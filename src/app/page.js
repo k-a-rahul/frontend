@@ -110,16 +110,16 @@ export default function Home() {
   //
   return (
     <>
-      <div className=" flex justify-center items-center w-full h-full">
+      <div className="w-full h-full flex justify-center items-center">
         <ToastContainer
-          className={"mt-1 md:mt-5 w-[90%] md:w-full "}
+          className={"mt-2 md:mt-5 px-5 md:px-0 md:w-full "}
           position="top-center"
           closeButton={true}
           autoClose={5000}
         />
       </div>
-      <div className=" bg-[url('../app/Images/hotel3.jpg')] bg-cover aspect-auto h-[100vh] grid justify-items-center items-center brightness-110  ">
-        <div className="grid md:grid-cols-3 grid-cols-1 gap-5 justify-items-center md:backdrop-blur-md md:border rounded-xl p-4 ">
+      <div className=" bg-[url('../app/Images/hotel3.jpg')] bg-cover aspect-auto h-[100vh] grid justify-items-center items-center brightness-90  ">
+        <div className="grid md:grid-cols-3 grid-cols-1 gap-5 justify-items-center md:backdrop-blur-xl md:border rounded-xl p-4 ">
           <h1 className="md:col-span-3 col-span-1 text-white text-3xl md:text-5xl mt-2 p-2 border bg-green-600 rounded-xl ">
             Welcome To Spice Lab
           </h1>
@@ -143,8 +143,10 @@ export default function Home() {
       </div>
 
       {/* Modal Component */}
-      <Modal isOpen={isModalOpen} onClose={closeModal} >
-        <h2 className="text-2xl font-bold text-gray-800">Enter Details</h2>
+      <Modal isOpen={isModalOpen} onClose={closeModal}>
+        <h2 className="text-xl font-bold text-gray-800">
+          Enter Details And Choose a Slot
+        </h2>
         <div className="w-full flex justify-center items-center">
           <form className="w-full md:w-full flex flex-col justify-center items-center gap-1 p-1">
             <span>Table No:{tableNo}</span>
@@ -193,7 +195,7 @@ export default function Home() {
 
             <span>
               {userData.start
-                ? `${convertToLocal(userData.start)} - ${convertToLocal(
+                ? `Selected: ${convertToLocal(userData.start)} - ${convertToLocal(
                     userData.end
                   )}`
                 : ""}

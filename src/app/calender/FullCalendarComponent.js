@@ -34,7 +34,6 @@ const FullCalendarComponent = ({ bookings, onDateClick, userData }) => {
       </div> */}
       <div
         style={{
-          
           maxWidth: "360px",
           height: "100%",
           margin: "auto",
