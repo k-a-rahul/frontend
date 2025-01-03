@@ -4,7 +4,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import { toast, ToastContainer } from "react-toastify";
-const FullCalendarComponent = ({ bookings, onDateClick,userData }) => {
+const FullCalendarComponent = ({ bookings, onDateClick, userData }) => {
   const [events, setEvents] = useState([
     {
       start: "2025-01-05 13:00",
@@ -25,7 +25,7 @@ const FullCalendarComponent = ({ bookings, onDateClick,userData }) => {
   };
 
   const handleEventClick = () => {
-    toast(`No slots Available for Selected Time`)
+    toast(`No slots Available for Selected Time`);
   };
   return (
     <>
@@ -34,13 +34,17 @@ const FullCalendarComponent = ({ bookings, onDateClick,userData }) => {
       </div> */}
       <div
         style={{
-          maxWidth: "700px",
+          maxWidth: "360px",
           height: "100%",
           margin: "auto",
-          fontSize: "10px",
+          fontSize: "11px",
         }}
+       
       >
         <FullCalendar
+        select={true} 
+          height={"200px"}
+          themeSystem="bootstrap"
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           initialView="timeGridWeek"
           events={bookings}
@@ -56,16 +60,16 @@ const FullCalendarComponent = ({ bookings, onDateClick,userData }) => {
           slotMaxTime={"22:00:00"}
           slotDuration={"02:00:00"}
           headerToolbar={{
-            left: "prev,next today",
+            left: "prev next today",
             center: "title",
-            right: "dayGridMonth,timeGridWeek,timeGridDay",
+            right: "timeGridWeek timeGridDay",
           }}
           buttonText={{
             day: "Day",
             month: "Month",
             week: "Week",
             list: "List",
-            today: "Today",
+            today: "2day",
           }}
         />
       </div>

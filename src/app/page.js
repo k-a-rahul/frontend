@@ -15,7 +15,8 @@ const tables = [
   { id: "0817x1irop468dd", no: 5 },
   { id: "0817x1irop468de", no: 6 },
 ];
-
+const regex = /[a-zA-Z]/;
+const regexChar = /[^0-9]/;
 export default function Home() {
   // calender states here
   const [tableId, setTableId] = useState("");
@@ -40,25 +41,31 @@ export default function Home() {
     const { name, mobile, guests, start, end } = userData;
     if (!(name && mobile && guests && start && end)) {
       toast(`Please Fill All Required Details`);
+    } else if (name.length < 4 || name.length > 20) {
+      toast(`Enter a Valid name`);
+    } else if (regex.test(mobile) || regexChar.test(mobile)) {
+      toast("Enter Valid Mobile Number");
     } else {
       bookSlot();
     }
   };
   const handleClick = (id) => {
     setTableId(id);
-    axios.get(process.env.NEXT_PUBLIC_SERVER_URL + `/booking/${id}`).then((res) => {
-      setBookings(
-        res.data.data.map((e) => {
-          return {
-            ...e,
-            start: new Date(e.start),
-            end: new Date(e.end),
-            color: "grey",
-            tilte: "Booked",
-          };
-        })
-      );
-    });
+    axios
+      .get(process.env.NEXT_PUBLIC_SERVER_URL + `/booking/${id}`)
+      .then((res) => {
+        setBookings(
+          res.data.data.map((e) => {
+            return {
+              ...e,
+              start: new Date(e.start),
+              end: new Date(e.end),
+              color: "grey",
+              tilte: "Booked",
+            };
+          })
+        );
+      });
     openModal();
   };
   const incDate = (datestr) => {
@@ -151,12 +158,15 @@ export default function Home() {
               className="xl:w-[70%] w-full h-10 rounded-xl px-4 border  border-b-4 border-mediumPurple"
             />
             <input
+              minLength={10}
+              maxLength={10}
               value={userData?.mobile || ""}
               name="mobile"
               onChange={handleChange}
               autoComplete="home mobile webauthn"
               type="tel"
-              required
+              required={true}
+              aria-required={true}
               title="Enter Your Mobile Number here "
               placeholder="Mobile"
               className="xl:w-[70%] w-full h-10 rounded-xl px-4 border  border-b-4 border-mediumPurple"
