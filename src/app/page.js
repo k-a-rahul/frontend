@@ -118,12 +118,13 @@ export default function Home() {
           autoClose={5000}
         />
       </div>
-      <div className=" bg-[url('../app/Images/hotel3.jpg')] bg-cover aspect-auto h-[100vh] grid justify-items-center items-center brightness-90  ">
-        <div className="grid md:grid-cols-3 grid-cols-1 gap-5 justify-items-center md:backdrop-blur-xl md:border rounded-xl p-4 ">
-          <h1 className="md:col-span-3 col-span-1 text-white text-3xl md:text-5xl mt-2 p-2 border bg-green-600 rounded-xl ">
+      <div className=" bg-[url('../app/Images/hotel3.jpg')] bg-cover aspect-auto h-[100dvh] grid justify-items-center items-center brightness-100  ">
+        <div className="group grid md:grid-cols-3 grid-cols-1 gap-3 justify-items-center backdrop-blur-lg md:border rounded-xl p-4 ">
+          <h1 className="z-10 md:group-hover:-translate-y-14 transition-all duration-300 md:col-span-3 col-span-1 text-white text-2xl md:text-5xl mt-0 p-3 border bg-purple-800 rounded-xl ">
             Welcome To Spice Lab
+            <span role="img" className="text-4xl">👨‍🍳</span>
           </h1>
-          <h1 className="md:col-span-3 col-span-1 text-white text-xl md:text-3xl mt-2 p-2 border backdrop-blur-md rounded-xl ">
+          <h1 className="md:-translate-y-20 md:col-span-3 col-span-1 text-white text-base md:text-3xl mt-2 p-2 border backdrop-blur-md rounded-xl ">
             Choose a Table to Book
           </h1>
           {tables.map((table) => {
@@ -132,7 +133,7 @@ export default function Home() {
                 key={table.id}
                 role="button"
                 onClick={() => handleClick(table.id, setTableNo(table.no))}
-                className="text-4xl text-white backdrop-blur-xl border-2 p-2 rounded-xl bg-gray-600 transition-all delay-0 duration-500 hover:-translate-y-1"
+                className="text-3xl text-white md:brightness-[0.6]  md:hover:brightness-100 border-2 p-2 rounded-xl transition-all duration-300 "
               >
                 {" "}
                 Table No : {table.no}
