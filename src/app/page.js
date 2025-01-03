@@ -110,9 +110,9 @@ export default function Home() {
   //
   return (
     <>
-      <div className=" flex justify-center items-center w-full h-full place-items-center ">
+      <div className=" flex justify-center items-center w-full h-full">
         <ToastContainer
-         className={'mt-1 md:mt-5 md:w-full '}
+          className={"mt-1 md:mt-5 w-[90%] md:w-full "}
           position="top-center"
           closeButton={true}
           autoClose={5000}
@@ -143,10 +143,10 @@ export default function Home() {
       </div>
 
       {/* Modal Component */}
-      <Modal isOpen={isModalOpen} onClose={closeModal}>
+      <Modal isOpen={isModalOpen} onClose={closeModal} >
         <h2 className="text-2xl font-bold text-gray-800">Enter Details</h2>
-        <div>
-          <form className="w-full flex flex-col justify-center items-center gap-1 p-1">
+        <div className="w-full flex justify-center items-center">
+          <form className="w-full md:w-full flex flex-col justify-center items-center gap-1 p-1">
             <span>Table No:{tableNo}</span>
             <input
               value={userData?.name || ""}
@@ -184,10 +184,12 @@ export default function Home() {
               placeholder="No Of Guests"
               className="xl:w-[70%] w-full h-10 rounded-xl px-4 border  border-b-4 border-mediumPurple"
             />
-            <FullCalendarComponent
-              bookings={bookings}
-              onDateClick={handleDateClick}
-            />
+            <div className="w-[90%]">
+              <FullCalendarComponent
+                bookings={bookings}
+                onDateClick={handleDateClick}
+              />
+            </div>
 
             <span>
               {userData.start

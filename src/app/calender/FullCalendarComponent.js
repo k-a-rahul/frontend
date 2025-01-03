@@ -34,16 +34,16 @@ const FullCalendarComponent = ({ bookings, onDateClick, userData }) => {
       </div> */}
       <div
         style={{
-          maxWidth: "380px",
+          
+          maxWidth: "360px",
           height: "100%",
           margin: "auto",
-          fontSize: "11px",
+          fontSize: "12px",
         }}
-       
       >
         <FullCalendar
           select={true} 
-          height={"260px"}
+          height={"220px"}
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           initialView="timeGridDay"
           events={bookings}
@@ -59,7 +59,7 @@ const FullCalendarComponent = ({ bookings, onDateClick, userData }) => {
           slotMaxTime={"22:00:00"}
           slotDuration={"02:00:00"}
           headerToolbar={{
-            left: "prev next today",
+            left: "prev next",
             center: "title",
             right: "timeGridWeek timeGridDay",
           }}
