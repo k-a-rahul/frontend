@@ -46,7 +46,6 @@ export default function Home() {
   };
   const handleClick = (id) => {
     setTableId(id);
-    console.log(process.env.NEXT_PUBLIC_SERVER_URL);
     axios.get(process.env.NEXT_PUBLIC_SERVER_URL + `/booking/${id}`).then((res) => {
       setBookings(
         res.data.data.map((e) => {
