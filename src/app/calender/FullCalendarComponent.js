@@ -46,7 +46,7 @@ const FullCalendarComponent = ({ bookings, onDateClick, userData }) => {
           height={"200px"}
           themeSystem="bootstrap"
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-          initialView="timeGridWeek"
+          initialView="timeGridDay"
           events={bookings}
           dateClick={handleDateClick}
           eventClick={handleEventClick}
@@ -69,7 +69,7 @@ const FullCalendarComponent = ({ bookings, onDateClick, userData }) => {
             month: "Month",
             week: "Week",
             list: "List",
-            today: "2day",
+            today: "Today",
           }}
         />
       </div>
