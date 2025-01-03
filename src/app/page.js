@@ -4,7 +4,9 @@ import Modal from "./modal/modal";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import FullCalendarComponent from "./calender/FullCalendarComponent";
+import dotenv from "dotenv"
 
+dotenv.config()
 const tables = [
   { id: "0817x1irop468dy", no: 1 },
   { id: "0817x1irop468d6", no: 2 },
