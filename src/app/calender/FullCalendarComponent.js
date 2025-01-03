@@ -34,7 +34,7 @@ const FullCalendarComponent = ({ bookings, onDateClick, userData }) => {
       </div> */}
       <div
         style={{
-          maxWidth: "360px",
+          maxWidth: "380px",
           height: "100%",
           margin: "auto",
           fontSize: "11px",
@@ -42,9 +42,8 @@ const FullCalendarComponent = ({ bookings, onDateClick, userData }) => {
        
       >
         <FullCalendar
-        select={true} 
-          height={"200px"}
-          themeSystem="bootstrap"
+          select={true} 
+          height={"260px"}
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           initialView="timeGridDay"
           events={bookings}

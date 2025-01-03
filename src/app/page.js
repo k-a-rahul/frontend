@@ -110,10 +110,11 @@ export default function Home() {
   //
   return (
     <>
-      <div className="grid place-items-center ">
+      <div className=" flex justify-center items-center w-full h-full place-items-center ">
         <ToastContainer
+         className={'mt-1 md:mt-5 md:w-full '}
           position="top-center"
-          closeButton={false}
+          closeButton={true}
           autoClose={5000}
         />
       </div>
